@@ -10912,6 +10912,7 @@ td .form-control[readonly] {
   background: transparent;
   border: none;
   color: black;
+  text-align: center;
 }
 
 td .form-control[readonly]:focus {
