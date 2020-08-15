@@ -17,8 +17,10 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('ingredients');
+            $table->string('image_url');
             $table->float('price', 5, 2);
-            $table->enum('currency', ["USD", "EUR"])->default("EUR");;
+            $table->enum('size', ["small", "medium", "large"])->default("medium");
+            $table->enum('currency', ["USD", "EUR"])->default("EUR");
             $table->enum("status", ["available", "unavailable"])->default('available');;
             $table->timestamps();
         });

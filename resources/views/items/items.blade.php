@@ -17,6 +17,7 @@
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Ingredients</th>
+                                    <th>Size</th>
                                     <th>Price</th>
                                     <th>Currency</th>
                                     <th>Status</th>
@@ -28,6 +29,7 @@
                                         <td scope="row" >{{ $item->id }}</td>
                                         <td >{{ $item->name }}</td>
                                         <td>{{ $item->ingredients }}</td>
+                                        <td>{{ $item->size }}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->currency }}</td>
                                         <td>
@@ -42,7 +44,7 @@
                                     </tr>
                                 @empty
                                     <tr class="no-data text-center">
-                                        <td colspan="6">No Items</td>
+                                        <td colspan="7">No Items</td>
                                     </tr>
                                 @endforelse
                             </tbody>

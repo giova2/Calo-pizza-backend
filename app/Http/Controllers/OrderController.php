@@ -19,11 +19,29 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($items_per_pag=5)
+    public function index($items_per_pag=10)
     {
         $orders = Order::orderByDesc('created_at')->paginate($items_per_pag);
         $status_orders = [Order::approbed(),Order::pending(), Order::rejected()];
         return view('orders.orders', compact('orders','status_orders'));
+    }
+
+    public function api_list($user_id){
+        $orders = Order::select('created_at',
+        'id',
+        'name',
+        'contact',
+        'address',
+        'currency',
+        'status',
+        'total')->orderByDesc('created_at')->where('user_id', $user_id)->get();
+        $order_items = [];
+        foreach($orders as $order){
+            $order_items[] = ['order'=> $order, 'items'=>$order->orders_items()->join('items', 'items.id', '=', 'order_items.item_id')->select('items.*', 'order_items.quantity','order_items.id')->get()];
+            // $order->items = $order->orders_items()->join('items', 'items.id', '=', 'order_items.item_id')->select('items.*', 'order_items.quantity','order_items.id')->get();
+        }
+
+        return response()->json($order_items, 200);
     }
 
     /**
@@ -91,13 +109,16 @@ class OrderController extends Controller
      */
     public function api_store(OrderRequestApi $request)
     {
+        
         try {
             DB::beginTransaction(); 
             $arr_order = [
+                'user_id' => isset($request->user_id) ? $request->user_id : NULL,
                 'name' => $request->name, 
                 'contact' => $request->contact, 
                 'address' => $request->address, 
                 'currency' => $request->currency,
+                'status' => Order::pending(),
                 'total' => $request->total,
             ];
             $order = Order::create($arr_order);
@@ -110,7 +131,7 @@ class OrderController extends Controller
                 ]);
             }
             DB::commit();
-            return response()->json(['success' => $arr_order, 'items'=>$order_items], 200);
+            return response()->json(['success' => $order, 'items'=>$order_items], 200);
         } catch(\Exception $e) { 
             DB::rollback(); // In case of errors, we rollback the previous operations
         }
