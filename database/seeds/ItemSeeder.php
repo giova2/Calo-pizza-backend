@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 
 class ItemSeeder extends Seeder
 {
@@ -10,7 +9,7 @@ class ItemSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
         DB::table('items')->insert([
             'name' => "Marguerita",
