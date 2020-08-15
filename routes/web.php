@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('welcome');
+Auth::routes(['register' => false,
+'reset' => false, // Password Reset Routes...
+'verify' => false // Email Verification Routes...
+]);
 
-Auth::routes();
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
