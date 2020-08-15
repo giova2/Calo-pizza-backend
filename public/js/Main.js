@@ -1,146 +1,199 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./resources/js/Main.js":
-/*!******************************!*\
+/******/ (function(modules) {
+    // webpackBootstrap
+    /******/ // The module cache
+    /******/ var installedModules = {}; // The require function
+    /******/
+    /******/ /******/ function __webpack_require__(moduleId) {
+        /******/
+        /******/ // Check if module is in cache
+        /******/ if (installedModules[moduleId]) {
+            /******/ return installedModules[moduleId].exports;
+            /******/
+        } // Create a new module (and put it into the cache)
+        /******/ /******/ var module = (installedModules[moduleId] = {
+            /******/ i: moduleId,
+            /******/ l: false,
+            /******/ exports: {}
+            /******/
+        }); // Execute the module function
+        /******/
+        /******/ /******/ modules[moduleId].call(
+            module.exports,
+            module,
+            module.exports,
+            __webpack_require__
+        ); // Flag the module as loaded
+        /******/
+        /******/ /******/ module.l = true; // Return the exports of the module
+        /******/
+        /******/ /******/ return module.exports;
+        /******/
+    } // expose the modules object (__webpack_modules__)
+    /******/
+    /******/
+    /******/ /******/ __webpack_require__.m = modules; // expose the module cache
+    /******/
+    /******/ /******/ __webpack_require__.c = installedModules; // define getter function for harmony exports
+    /******/
+    /******/ /******/ __webpack_require__.d = function(exports, name, getter) {
+        /******/ if (!__webpack_require__.o(exports, name)) {
+            /******/ Object.defineProperty(exports, name, {
+                enumerable: true,
+                get: getter
+            });
+            /******/
+        }
+        /******/
+    }; // define __esModule on exports
+    /******/
+    /******/ /******/ __webpack_require__.r = function(exports) {
+        /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+            /******/ Object.defineProperty(exports, Symbol.toStringTag, {
+                value: "Module"
+            });
+            /******/
+        }
+        /******/ Object.defineProperty(exports, "__esModule", { value: true });
+        /******/
+    }; // create a fake namespace object // mode & 1: value is a module id, require it // mode & 2: merge all properties of value into the ns // mode & 4: return value when already ns object // mode & 8|1: behave like require
+    /******/
+    /******/ /******/ /******/ /******/ /******/ /******/ __webpack_require__.t = function(
+        value,
+        mode
+    ) {
+        /******/ if (mode & 1) value = __webpack_require__(value);
+        /******/ if (mode & 8) return value;
+        /******/ if (
+            mode & 4 &&
+            typeof value === "object" &&
+            value &&
+            value.__esModule
+        )
+            return value;
+        /******/ var ns = Object.create(null);
+        /******/ __webpack_require__.r(ns);
+        /******/ Object.defineProperty(ns, "default", {
+            enumerable: true,
+            value: value
+        });
+        /******/ if (mode & 2 && typeof value != "string")
+            for (var key in value)
+                __webpack_require__.d(
+                    ns,
+                    key,
+                    function(key) {
+                        return value[key];
+                    }.bind(null, key)
+                );
+        /******/ return ns;
+        /******/
+    }; // getDefaultExport function for compatibility with non-harmony modules
+    /******/
+    /******/ /******/ __webpack_require__.n = function(module) {
+        /******/ var getter =
+            module && module.__esModule
+                ? /******/ function getDefault() {
+                      return module["default"];
+                  }
+                : /******/ function getModuleExports() {
+                      return module;
+                  };
+        /******/ __webpack_require__.d(getter, "a", getter);
+        /******/ return getter;
+        /******/
+    }; // Object.prototype.hasOwnProperty.call
+    /******/
+    /******/ /******/ __webpack_require__.o = function(object, property) {
+        return Object.prototype.hasOwnProperty.call(object, property);
+    }; // __webpack_public_path__
+    /******/
+    /******/ /******/ __webpack_require__.p = "/"; // Load entry module and return exports
+    /******/
+    /******/
+    /******/ /******/ return __webpack_require__((__webpack_require__.s = 0));
+    /******/
+})(
+    /************************************************************************/
+    /******/ {
+        /***/ "./resources/js/Main.js":
+            /*!******************************!*\
   !*** ./resources/js/Main.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+            /*! no static exports found */
+            /***/ function(module, exports) {
+                document.addEventListener("DOMContentLoaded", function(event) {
+                    if (document.body.querySelector(".edit tbody tr")) {
+                        $(document).on(
+                            "click",
+                            ".edit tbody tr:not(.no-data)",
+                            function(e) {
+                                if (
+                                    e.target.className.indexOf(
+                                        "item-status"
+                                    ) === -1 &&
+                                    e.target.className.indexOf(
+                                        "order-status"
+                                    ) === -1
+                                ) {
+                                    var id = $(e.target)
+                                        .closest("tr")
+                                        .data("id");
+                                    editar(id);
+                                }
+                            }
+                        );
+                    }
+                });
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  if (document.body.querySelector(".edit tbody tr")) {
-    $(document).on("click", ".edit tbody tr:not(.no-data)", function (e) {
-      console.log("e.", e.target.className);
+                var editar = function editar(id) {
+                    var urlSinProtocol = window.location.href.substr(
+                        window.location.protocol.length + 2,
+                        window.location.href.length
+                    ); //recortamos la parte de http:// o https://
 
-      if (e.target.className.indexOf("item-status") === -1 && e.target.className.indexOf("order-status") === -1) {
-        var id = $(e.target).closest("tr").data("id");
-        editar(id);
-      }
-    });
-  }
-});
+                    var posSlashSubRuta = urlSinProtocol.indexOf("/"); // posicion de la primera barra de la ruta actual
 
-var editar = function editar(id) {
-  var urlSinProtocol = window.location.href.substr(window.location.protocol.length + 2, window.location.href.length); //recortamos la parte de http:// o https://
+                    var url =
+                        urlSinProtocol.indexOf("?") > -1
+                            ? urlSinProtocol.substr(
+                                  posSlashSubRuta,
+                                  urlSinProtocol.indexOf("?") - posSlashSubRuta
+                              )
+                            : urlSinProtocol.substr(posSlashSubRuta); // si tiene argumentos lo recortamos, sino queda como está
 
-  var posSlashSubRuta = urlSinProtocol.indexOf("/"); // posicion de la primera barra de la ruta actual
+                    url = window.origin + url;
+                    window.location = url + "/" + id;
+                };
 
-  var url = urlSinProtocol.indexOf("?") > -1 ? urlSinProtocol.substr(posSlashSubRuta, urlSinProtocol.indexOf("?") - posSlashSubRuta) : urlSinProtocol.substr(posSlashSubRuta); // si tiene argumentos lo recortamos, sino queda como está
+                /***/
+            },
 
-  url = window.origin + url;
-  window.location = url + "/" + id;
-};
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
+        /***/ "./resources/sass/app.scss":
+            /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+            /*! no static exports found */
+            /***/ function(module, exports) {
+                // removed by extract-text-webpack-plugin
+                /***/
+            },
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!**************************************************************!*\
+        /***/ 0:
+            /*!**************************************************************!*\
   !*** multi ./resources/js/Main.js ./resources/sass/app.scss ***!
   \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+            /*! no static exports found */
+            /***/ function(module, exports, __webpack_require__) {
+                __webpack_require__(
+                    /*! /Users/francogiovannangelo/Documents/Proyectos/php/laravel/pizza-task/resources/js/Main.js */ "./resources/js/Main.js"
+                );
+                module.exports = __webpack_require__(
+                    /*! /Users/francogiovannangelo/Documents/Proyectos/php/laravel/pizza-task/resources/sass/app.scss */ "./resources/sass/app.scss"
+                );
 
-__webpack_require__(/*! /Users/francogiovannangelo/Documents/Proyectos/php/laravel/pizza-task/resources/js/Main.js */"./resources/js/Main.js");
-module.exports = __webpack_require__(/*! /Users/francogiovannangelo/Documents/Proyectos/php/laravel/pizza-task/resources/sass/app.scss */"./resources/sass/app.scss");
+                /***/
+            }
 
-
-/***/ })
-
-/******/ });
+        /******/
+    }
+);

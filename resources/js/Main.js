@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", event => {
     if (document.body.querySelector(".edit tbody tr")) {
         $(document).on("click", ".edit tbody tr:not(.no-data)", e => {
-            console.log("e.", e.target.className);
             if (
                 e.target.className.indexOf("item-status") === -1 &&
                 e.target.className.indexOf("order-status") === -1

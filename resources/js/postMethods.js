@@ -3,7 +3,6 @@ import { UPDATE_ITEM_ROUTE, UPDATE_ORDER_ROUTE, BASE_URL } from "./routes.js";
 
 export const postMethods = {
     changeOrderStatus(id, status) {
-        console.log({ id, status });
         axios.put(
             `${BASE_URL}${UPDATE_ORDER_ROUTE}${id}`,
             { status: status },
@@ -17,7 +16,6 @@ export const postMethods = {
         );
     },
     changeItemStatus(id, status) {
-        console.log({ id, status });
         axios.put(
             `${BASE_URL}${UPDATE_ITEM_ROUTE}${id}`,
             { status: status },

@@ -51,3 +51,7 @@ This development was made using Laravel 7.
 
 -   To make the migrations appling the seed:
     `php artisan migrate --seed`
+
+# ENV variables
+
+- var CORS_ALLOW should have a format like http://example.com,http://example2.com,....
