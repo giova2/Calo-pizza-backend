@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('api_users')->onDelete('restrict');
             $table->string('name');
+            $table->string('email');
             $table->string('contact');
             $table->string('address');
             $table->float('total');

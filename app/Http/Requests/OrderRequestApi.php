@@ -26,6 +26,7 @@ class OrderRequestApi extends FormRequest
     {
         return [
             'name' => 'required|max:254',
+            'email' => 'required|email:rfc',
             'contact' => 'required|numeric',
             'address' => 'required|max:254',
             'currency' => 'required|in:'.implode(',', Order::currencies()),

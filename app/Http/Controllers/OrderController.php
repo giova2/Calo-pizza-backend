@@ -30,6 +30,7 @@ class OrderController extends Controller
         $orders = Order::select('created_at',
         'id',
         'name',
+        'email',
         'contact',
         'address',
         'currency',
@@ -76,6 +77,7 @@ class OrderController extends Controller
             DB::beginTransaction(); 
             $arr_order = [
                 'name' => $request->name, 
+                'email' => $request->email,
                 'contact' => $request->contact, 
                 'address' => $request->address, 
                 'currency' => $request->currency,
@@ -109,12 +111,14 @@ class OrderController extends Controller
      */
     public function api_store(OrderRequestApi $request)
     {
-        
+        $err = '';
         try {
             DB::beginTransaction(); 
             $arr_order = [
+                
                 'user_id' => isset($request->user_id) ? $request->user_id : NULL,
                 'name' => $request->name, 
+                'email' => $request->email, 
                 'contact' => $request->contact, 
                 'address' => $request->address, 
                 'currency' => $request->currency,
@@ -133,9 +137,10 @@ class OrderController extends Controller
             DB::commit();
             return response()->json(['success' => $order, 'items'=>$order_items], 200);
         } catch(\Exception $e) { 
+            $err = $e;
             DB::rollback(); // In case of errors, we rollback the previous operations
         }
-        return response()->json(['error' => 'An error ocurred when trying to save the order'], 500);
+        return response()->json(['error' => 'An error ocurred when trying to save the order: '.$err], 500);
         
     }
 
@@ -176,6 +181,7 @@ class OrderController extends Controller
     {
         $order           = Order::find($id);
         $order->name     = $request->name;
+        $order->email    = $request->email;
         $order->contact  = $request->contact;
         $order->address  = $request->address;
         $order->status   = $request->status;

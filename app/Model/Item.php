@@ -15,6 +15,9 @@ class Item extends Model
         return $this->hasMany('App\Model\OrderItem');
     }    
 
+    static function sizes(){
+        return ['small', 'medium', 'large'];
+    }
     static function default_currency(){
         return 'EUR';
     }

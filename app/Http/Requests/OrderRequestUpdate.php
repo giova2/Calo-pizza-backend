@@ -26,6 +26,7 @@ class OrderRequestUpdate extends FormRequest
     {
         return [
             'name' => 'required|max:254',
+            'email' => 'required|email',
             'contact' => 'required|numeric',
             'address' => 'required|max:254',
             'status' => 'required|in:'.Order::approbed().','.Order::pending().','.Order::rejected(),

@@ -19,6 +19,16 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="">E-mail</label>
+                    <input type="text" placeholder="Contact E-mail"
+                    class="form-control" name="email" id="email" aria-describedby="helpId" value="{{ $order->email }}">
+                    @error('email')
+                    <div class="alert {{ $errors->first('email', 'alert-danger') }} " role="alert">
+                      {{  $errors->first('email', ':message') }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="">Contact</label>
                     <input type="text" placeholder="Contact Phone"
                     class="form-control" name="contact" id="contact" aria-describedby="helpId" value="{{ $order->contact }}">
@@ -98,6 +108,16 @@
                     @error('name')
                     <div class="alert {{ $errors->first('name', 'alert-danger') }} " role="alert">
                       {{  $errors->first('name', ':message') }}
+                    </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="">E-mail</label>
+                    <input type="text" placeholder="Contact E-mail"
+                    class="form-control" name="email" id="email" aria-describedby="helpId" value="{{ old('email') }}">
+                    @error('email')
+                    <div class="alert {{ $errors->first('email', 'alert-danger') }} " role="alert">
+                      {{  $errors->first('email', ':message') }}
                     </div>
                     @enderror
                 </div>

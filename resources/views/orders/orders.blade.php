@@ -16,6 +16,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>E-mail</th>
                                     <th>Contact</th>
                                     <th>Address</th>
                                     <th>Total</th>
@@ -28,6 +29,7 @@
                                     <tr data-id="{{ $order->id }}">
                                         <td scope="row" >{{ $order->id }}</td>
                                         <td >{{ $order->name }}</td>
+                                        <td>{{ $order->email }}</td>
                                         <td>{{ $order->contact }}</td>
                                         <td>{{ $order->address }}</td>
                                         <td>{{ $order->total }}</td>
@@ -45,7 +47,7 @@
                                     </tr>
                                 @empty
                                     <tr class="no-data text-center">
-                                        <td colspan="7">No Orders</td>
+                                        <td colspan="8">No Orders</td>
                                     </tr>
                                 @endforelse
                             </tbody>
