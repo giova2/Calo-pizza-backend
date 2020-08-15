@@ -1,7 +1,7 @@
 export const BASE_URL =
     window.location.host === "pizza-task.test"
         ? ""
-        : "https://pizza-task.herokuapp.com";
+        : "https://pizza-task-laravel.herokuapp.com";
 
 const route = window.location.pathname.split("/")[1];
 export const URL_ROUTE = `/${route}/`;
