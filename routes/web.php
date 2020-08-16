@@ -23,6 +23,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/api_users', 'ApiUserController@index')->name('api_users');
     Route::get('/items', 'ItemController@index')->name('items');
     Route::get('/items/create', 'ItemController@create')->name('items.create');
     Route::get('/items/{id}', 'ItemController@edit')->name('items.edit');

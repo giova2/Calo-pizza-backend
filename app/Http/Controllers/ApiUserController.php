@@ -12,9 +12,10 @@ class ApiUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($items_per_pag=5)
     {
-        //
+        $api_users = ApiUser::paginate($items_per_pag);
+        return view('api_users.api_users', compact('api_users'));
     }
 
     /**

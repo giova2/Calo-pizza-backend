@@ -70,6 +70,7 @@
                     @auth
                         <a href="{{ route('items') }}">{{ __('Items') }}</a>
                         <a href="{{ route('orders') }}">{{ __('Orders') }}</a>
+                        <a href="{{ route('api_users') }}">{{ __('Api users') }}</a>
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
