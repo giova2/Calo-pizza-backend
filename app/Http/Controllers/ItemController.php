@@ -40,7 +40,7 @@ class ItemController extends Controller
      */
     public function availables()
     {
-        $items = Item::select('id', 'name', 'ingredients', 'image_url', 'size', 'price', 'currency')->where('status', 'available')->orderBy('size')->get();
+        $items = Item::select('id', 'name', 'ingredients', 'image_url', 'size', 'price', 'currency')->where('status', 'available')->orderBy('size')->orderBy('id')->get();
         return response()->json($items, 200);
     }
 
