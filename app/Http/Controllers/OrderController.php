@@ -10,6 +10,8 @@ use App\Http\Requests\OrderRequest;
 use App\Http\Requests\OrderRequestApi;
 use App\Http\Requests\OrderRequestUpdate;
 use Illuminate\Support\Facades\DB;
+use App\Mail\OrderMail;
+use Illuminate\Support\Facades\Mail;
 use Redirect;
 
 class OrderController extends Controller
@@ -115,7 +117,6 @@ class OrderController extends Controller
         try {
             DB::beginTransaction(); 
             $arr_order = [
-                
                 'user_id' => isset($request->user_id) ? $request->user_id : NULL,
                 'name' => $request->name, 
                 'email' => $request->email, 
@@ -134,6 +135,7 @@ class OrderController extends Controller
                     'quantity' => $item['quantity'],
                 ]);
             }
+            Mail::to($arr_order['email'])->bcc(config('mail.forward'))->send(new OrderMail($request));
             DB::commit();
             return response()->json(['success' => $order, 'items'=>$order_items], 200);
         } catch(\Exception $e) { 
