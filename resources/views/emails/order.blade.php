@@ -1,4 +1,6 @@
 @component('mail::message')
+## <div style="text-align:center"> Thanks for your order!</div>
+
 # Order information:
 
 - Order Name: <strong>{{ $name }}</strong>
@@ -11,14 +13,14 @@
 ---
 - (this prices are expressed in Euros but the total is going to be expressed in the currency that you selected at the moment of your purchase)
 ---
-<table>
+<table class="order-details">
 <thead>
-    <tr style="border:2px solid black">
+    <tr style="border-bottom:2px solid black">
         <th>Name</th>
         <th>Ingredients</th>
         <th>Size</th>
         <th>Price</th>
-        <th>Quantity</th>
+        <th>Qty</th>
     </tr>
 </thead>
 <tbody>
@@ -34,9 +36,18 @@
 </tbody>
 </table>
 
+<br>
+<br>
+
+---
+
 # TOTAL:    {{ $currency }} {{ $total }}
 
-## The status of your order is <strong>{{ $status }}</strong>
+---
+
+## The status of your order is <span class="status {{ $status }}"><strong>{{ $status }}</strong></span>
+
+---
 
 @component('mail::button', ['url' => config('app.front_url')])
 Go to {{ config('app.name') }}

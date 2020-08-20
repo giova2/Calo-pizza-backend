@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\OrderMail;
 use Illuminate\Support\Facades\Mail;
 use Redirect;
+use App\Jobs\OrderCreatedSendEmail;
 
 class OrderController extends Controller
 {
@@ -41,9 +42,7 @@ class OrderController extends Controller
         $order_items = [];
         foreach($orders as $order){
             $order_items[] = ['order'=> $order, 'items'=>$order->orders_items()->join('items', 'items.id', '=', 'order_items.item_id')->select('items.*', 'order_items.quantity','order_items.id')->get()];
-            // $order->items = $order->orders_items()->join('items', 'items.id', '=', 'order_items.item_id')->select('items.*', 'order_items.quantity','order_items.id')->get();
         }
-
         return response()->json($order_items, 200);
     }
 
@@ -94,6 +93,7 @@ class OrderController extends Controller
                     'quantity' => $item['quantity'],
                 ]);
             }
+            OrderCreatedSendEmail::dispatch($request->all());
             DB::commit();
             return redirect('/orders');
         } catch(\Exception $e) { 
@@ -135,7 +135,7 @@ class OrderController extends Controller
                     'quantity' => $item['quantity'],
                 ]);
             }
-            Mail::to($arr_order['email'])->bcc(config('mail.forward'))->send(new OrderMail($request));
+            OrderCreatedSendEmail::dispatch($request->all());
             DB::commit();
             return response()->json(['success' => $order, 'items'=>$order_items], 200);
         } catch(\Exception $e) { 

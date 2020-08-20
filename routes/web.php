@@ -23,6 +23,8 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/template_email', 'HomeController@templateOrderMailTest');
+    Route::get('/contact_email', 'HomeController@orderMailTest');
     Route::get('/api_users', 'ApiUserController@index')->name('api_users');
     Route::get('/items', 'ItemController@index')->name('items');
     Route::get('/items/create', 'ItemController@create')->name('items.create');

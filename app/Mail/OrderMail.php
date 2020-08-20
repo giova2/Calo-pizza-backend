@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Carbon\Carbon;
 
-class OrderMail extends Mailable
+class OrderMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     protected $name, $email, $contact, $updated_at, $address, $total, $currency, $status, $items;
@@ -20,15 +20,15 @@ class OrderMail extends Mailable
     public function __construct($order)
     {
         $date = Carbon::now();
-        $this->name         = $order->name;
-        $this->email        = $order->email;
-        $this->contact      = $order->contact;
+        $this->name         = $order['name'];
+        $this->email        = $order['email'];
+        $this->contact      = $order['contact'];
         $this->updated_at   = $date->isoFormat('D/M/YY HH:mm');
-        $this->address      = $order->address;
-        $this->total        = $order->total;
-        $this->currency     = $order->currency;
-        $this->status       = $order->status;
-        $this->items        = $order->items;
+        $this->address      = $order['address'];
+        $this->total        = $order['total'];
+        $this->currency     = $order['currency'];
+        $this->status       = $order['status'];
+        $this->items        = $order['items'];
     }
 
     /**
