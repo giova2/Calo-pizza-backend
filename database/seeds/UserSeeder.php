@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'pizza',
             'email' => 'test@pizza.com',
-            'password' => Hash::make('pepperoni'),
+            'password' => Hash::make('pepito'),
             'remember_token' => 'recuerda lo que te dije',
             'email_verified_at' => now(),
             'created_at' => now(),
