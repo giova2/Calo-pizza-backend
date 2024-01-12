@@ -1,0 +1,76 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-custom {
+    background: linear-gradient(
+        to right,
+        $primary 33.3%,
+        #ffffff 33.3%,
+        #ffffff 66.6%,
+        $secondary 66.6%
+    );
+}
+
+td .form-control[readonly] {
+    background: transparent;
+    border: none;
+    color: black;
+    text-align: center;
+    &:focus {
+        border-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.button-to-management {
+    width: 100%;
+    border-radius: 0px;
+    font-size: $font-size-head;
+}
+
+.card-header {
+    background-color: $primary;
+    color: $contrast-primary;
+    text-align: center;
+    font-size: $font-size-head;
+    font-weight: $font-weight-head;
+}
+
+.card-body {
+    overflow: auto;
+}
+
+.navbar-light .navbar-brand,
+#navbarSupportedContent a {
+    color: $contrast-primary;
+    text-shadow: 0px 0px 6px #000;
+}
+
+.dropdown-item {
+    color: black !important;
+}
+
+tbody tr:not(.no-data) {
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+        background-color: rgba($primary, 0.6) !important;
+    }
+}
+
+.form-group {
+    margin-block: 1rem;
+    label {
+        margin-bottom: 0.5rem;
+    }
+}
