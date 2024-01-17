@@ -22,7 +22,7 @@ class ImageIntervention{
             if(!empty($config['size'])){
                 $img->fit($config['size'], $config['size']);
             }
-            $img->save();
+            // $img->save();
 
             return $img;
         } catch (\Exception $e) {
@@ -31,15 +31,16 @@ class ImageIntervention{
         }
     }
 
-    /** Store the given contents (an image or a video) in amazon
+    /** Store the given image in amazon
      * 
      * @param  string  $path is like dir/filename.ext
-     * @param  binary  $contents file contents
+     * @param  binary  $image file image
      */
 
-    static function cloudStore($path, $contents){
+    static function cloudStore($path, $image){
         try {
-            $status = Storage::disk('s3')->put($path, $contents);
+            $image->encode('jpg'); 
+            $status = Storage::disk('s3')->put($path, $image->stream());
             Storage::disk('s3')->setVisibility($path, 'public');
         
             return $status;

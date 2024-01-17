@@ -153,16 +153,19 @@ class ItemController extends Controller
         }
         //we loop around every config and we generate a different file for each configuration
         $urls = [];
-        foreach($this->configs as $config){
-            $urls[] = $file->store($config['path'], 'public');
+        foreach($this->configs as $config) {
             // we define the entire route file
             $file_path        = implode('/', [$config['path'], $file->hashName()]);
-            $public_file_path = public_path('storage/'.$file_path);
+            // $destinationPath = 'testing';
             
             // -- resize and save image with the same name and path
             
-            $img    = ImageIntervention::resizeImg($public_file_path, $config);
-            $stored = ImageIntervention::cloudStore($file_path, $img->encoded);
+            $img   = ImageIntervention::resizeImg($file, $config);
+            
+            $stored = ImageIntervention::cloudStore($file_path, $img);
+            
+            $urls[] = $file_path;
+            
             if(!$stored){
                 return ['error' => "Some files couldn't be saved: $file_path" ];
             }

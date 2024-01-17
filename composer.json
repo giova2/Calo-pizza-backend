@@ -45,8 +45,7 @@
             "php artisan config:cache && php artisan view:clear && php artisan config:clear",
             "php artisan migrate:reset",
             "php artisan migrate",
-            "php artisan db:seed",
-            "php artisan storage:link"
+            "php artisan db:seed"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
