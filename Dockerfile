@@ -5,11 +5,10 @@ FROM richarvey/nginx-php-fpm:3.1.6
 # Copy all application code into your Docker container
 COPY . .
 
-RUN apk update
+RUN apk update && apk upgrade
 
 # Install the `npm` package
-RUN apk update && \
-    apk add --no-cache npm \
+RUN apk add --no-cache npm \
     git \
     unzip \
     libpq-dev && \
